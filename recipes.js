@@ -17,12 +17,14 @@ window.addEventListener('DOMContentLoaded', function () {
         //取得アイテムのリストアップ
         var list = document.getElementById('list');
         list.innerHTML = '';
-        for (var i = 0, len = data['レシピ一覧'].length; i < len; i++) {
-          var item =data['レシピ一覧'][i]['レシピ名']
-          var li = document.createElement('li');
-          var text = document.createTextNode(item);
-          li.appendChild(text);
-          frag.appendChild(li);
+        if (keyword) {
+          for (var i = 0, len = data['レシピ一覧'].length; i < len; i++) {
+            var item =data['レシピ一覧'][i]['レシピ名']
+            var li = document.createElement('li');
+            var text = document.createTextNode(item);
+            li.appendChild(text);
+            frag.appendChild(li);
+          }
         }
         list.appendChild(frag);
       }
